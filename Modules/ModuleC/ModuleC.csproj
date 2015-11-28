@@ -86,8 +86,9 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(SolutionDir)HelloWorld\$(OutDir)Modules"
-xcopy /Y "$(TargetPath)" "$(SolutionDir)HelloWorld\$(OutDir)Modules\"
-xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(SolutionDir)HelloWorld\$(OutDir)Modules\"</PostBuildEvent>
+xcopy /Z /Y "$(TargetPath)" "$(SolutionDir)HelloWorld\$(OutDir)Modules\"
+REM The .pdb is not really needed. I think.
+REM xcopy /Z /Y "$(TargetDir)$(TargetName).pdb" "$(SolutionDir)HelloWorld\$(OutDir)Modules\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
