@@ -108,8 +108,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y "$(TargetPath)" "$(SolutionDir)HelloWorld\$(OutDir)\Modules"
-xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(SolutionDir)HelloWorld\$(OutDir)\Modules"</PostBuildEvent>
+    <PostBuildEvent>mkdir "$(SolutionDir)HelloWorld\$(OutDir)Modules"
+xcopy /Y "$(TargetPath)" "$(SolutionDir)HelloWorld\$(OutDir)Modules\"
+xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(SolutionDir)HelloWorld\$(OutDir)Modules\"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
